@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tap Until You Receive a Gift</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+        }
+        #message {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Tap Until You Receive a Gift</h1>
+    <p>Tap the button below until you reach the required taps to receive your gift!</p>
+    
+    <button id="tapButton" onclick="tap()">Tap Here!</button>
+
+    <div id="message"></div>
+
+    <script>
+        let tapCount = 0; // Counter for the taps
+        const requiredTaps = 10; // Number of taps required for the gift
+
+        // Function to handle the tap event
+        function tap() {
+            tapCount++; // Increase the tap count each time the button is clicked
+            document.getElementById('message').innerText = `Taps: ${tapCount}`;
+
+            // When the required number of taps is reached
+            if (tapCount >= requiredTaps) {
+                document.getElementById('tapButton').disabled = true; // Disable the button after reaching the goal
+                document.getElementById('message').innerText = "That's how you have wasted your time! You got your gift!";
+            }
+        }
+    </script>
+
+</body>
+</html>
